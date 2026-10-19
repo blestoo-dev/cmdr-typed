@@ -1,0 +1,26 @@
+--!strict
+
+const Types = require(script.Parent.Parent.Parent.CmdrClient.Shared.Types)
+
+local command: Types.CommandDefinition = {
+	Name = "run",
+	Aliases = { ">" },
+	AutoExec = {
+		'alias "discard|Run a command and discard the output." replace ${run $1} .* \\"\\"',
+	},
+	Description = "Runs a given command string (replacing embedded commands).",
+	Group = "DefaultUtil",
+	Args = {
+		{
+			Type = "string",
+			Name = "Command",
+			Description = "The command string to run.",
+		},
+	},
+
+	ClientRun = function(context: Types.CommandContext, commandString: string): string
+		return context.Cmdr.Util.RunCommandString(context.Dispatcher, commandString)
+	end,
+}
+
+return command
