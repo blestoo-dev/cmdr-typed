@@ -1,5 +1,5 @@
 [package]
-name = "blestoo/cmdr-typed"
+name = "blestoo-dev/cmdr-typed"
 description = "A fully extensible, type-safe command framework for Roblox."
 version = "1.13.1"
 license = "MIT"
